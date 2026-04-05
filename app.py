@@ -10,10 +10,28 @@ g = 9.81
 # ==== INPUT ====
 st.subheader("Input Parameters")
 
-Hs = st.number_input("Wave Height Hs (m)", min_value=0.1)
-HWS = st.number_input("Highest Water Surface (HWS) (m)")
-cot_theta = st.number_input("cot(theta)", min_value=0.1)
-armor_type = st.selectbox("Armor Type", list(DATA.keys()))
+Hs = st.number_input(
+    "Wave Height Hs (m)",
+    min_value=0.1,
+    value=2.24
+)
+
+HWS = st.number_input(
+    "Highest Water Surface (HWS) (m)",
+    value=3.09
+)
+
+cot_theta = st.number_input(
+    "cot(theta)",
+    min_value=0.1,
+    value=2.0
+)
+
+armor_type = st.selectbox(
+    "Armor Type",
+    list(DATA.keys()),
+    index=list(DATA.keys()).index("tetrapod")
+)
 
 # ==== INIT SESSION STATE ====
 if "results" not in st.session_state:
